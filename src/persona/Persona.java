@@ -5,6 +5,7 @@
  */
 package persona;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -30,14 +31,14 @@ public class Persona {
             writeFile(file);
 
         } catch (IOException e) {
-            System.out.println("El archivo no pudo ser escrito o la ruta no existe");
+            JOptionPane.showMessageDialog(null, "EL archivo no pudo ser escrito");
         }
 
         try {
             readFile(file);
         } catch (IOException e) {
-            System.out.println("El archivo " + file.getPath() + "no pudo ser leido, "
-                    + "compruebe que la ruta sea la correcta y que exista tal archivo");
+            JOptionPane.showMessageDialog(null, "El archivo " + file.getPath() + "no pudo ser leido, compruebe que la ruta sea la correcta y que exista tal archivo");
+
         }
 
     }
@@ -46,13 +47,22 @@ public class Persona {
         FileWriter fw = new FileWriter(file);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter writer = new PrintWriter(bw);
+        String persona = JOptionPane.showInputDialog("Cuantas personas desea almacenar: ");
+        int personas = Integer.parseInt(persona);
 
-        writer.println("Nombres: "+JOptionPane.showInputDialog("Nombres :"));
-        writer.println("Apellidos: "+JOptionPane.showInputDialog("Apellidos: "));
-        writer.println("Edad: "+JOptionPane.showInputDialog("Edad: "));
-        writer.println("Domicilio: "+JOptionPane.showInputDialog("Domicilio: "));
-        writer.println("Dirección: "+JOptionPane.showInputDialog("Dirección: "));
-        writer.println("Telefonos: "+JOptionPane.showInputDialog("Telefonos: "));
+        for (int i = 0; i < personas; i++) {
+
+            writer.println("_____________________________________________");
+            writer.println("PERSONA " + (i + 1));
+            writer.println("Nombres: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nNombres :"));
+            writer.println("Apellidos: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nApellidos: "));
+            writer.println("Edad: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nEdad: "));
+            writer.println("Domicilio: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nDomicilio: "));
+            writer.println("Dirección: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nDirección: "));
+            writer.println("Telefonos: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nTelefonos: "));
+            writer.println("_____________________________________________");
+        }
+
         writer.close();
     }
 
@@ -68,6 +78,7 @@ public class Persona {
 //Se lee una nueva línea
             linea = reader.readLine();
         }
+        JOptionPane.showMessageDialog(null, linea);
         reader.close();
     }
 
