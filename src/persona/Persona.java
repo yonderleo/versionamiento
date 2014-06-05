@@ -56,6 +56,8 @@ public class Persona {
             writer.println("PERSONA " + (i + 1));
             writer.println("Nombres: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nNombres :"));
             writer.println("Apellidos: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nApellidos: "));
+            writer.println("Cedula/Pasaporte: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nCedula/Pasaporte: "));
+            writer.println("Estado Civil: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nEstado Civil: "));
             writer.println("Edad: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nEdad: "));
             writer.println("Domicilio: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nDomicilio: "));
             writer.println("Dirección: " + JOptionPane.showInputDialog("Persona" + (i + 1) + "\nDirección: "));
@@ -72,6 +74,7 @@ public class Persona {
 
 //Se lee la primera línea
         String linea = reader.readLine();
+        System.out.println("Lectura del archivo");
 
         while (linea != null) {
             System.out.println(linea);
